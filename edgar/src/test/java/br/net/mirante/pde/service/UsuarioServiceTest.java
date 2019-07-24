@@ -1,6 +1,5 @@
 package br.net.mirante.pde.service;
 
-import br.net.mirante.pde.security.PasswordHashing;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,17 +20,17 @@ public class UsuarioServiceTest {
     @Test
     @Sql("classpath:db/test/usuario-test.sql")
     public void autenticarUsuario() {
-        assertThat(usuarioService.autenticarUsuario("edgar", PasswordHashing.generateHash("edgar123"))).isTrue();
-        assertThat(usuarioService.autenticarUsuario("marcos", PasswordHashing.generateHash("marcos123"))).isTrue();
-        assertThat(usuarioService.autenticarUsuario("william", PasswordHashing.generateHash("william123"))).isTrue();
+        assertThat(usuarioService.autenticar("edgar", "edgar123")).isTrue();
+        assertThat(usuarioService.autenticar("marcos", "marcos123")).isTrue();
+        assertThat(usuarioService.autenticar("william", "william123")).isTrue();
     }
 
     @Test
     @Sql("classpath:db/test/usuario-test.sql")
     public void autenticarUsuarioFail() {
-        assertThat(usuarioService.autenticarUsuario("edgar", PasswordHashing.generateHash("Edgar123"))).isFalse();
-        assertThat(usuarioService.autenticarUsuario("marcos", PasswordHashing.generateHash("marcos1234"))).isFalse();
-        assertThat(usuarioService.autenticarUsuario("william", PasswordHashing.generateHash("will123"))).isFalse();
+        assertThat(usuarioService.autenticar("edgar", "Edgar123")).isFalse();
+        assertThat(usuarioService.autenticar("marcos", "marcos1234")).isFalse();
+        assertThat(usuarioService.autenticar("william", "will123")).isFalse();
     }
 
 }

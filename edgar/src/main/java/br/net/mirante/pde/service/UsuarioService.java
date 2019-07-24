@@ -1,5 +1,6 @@
 package br.net.mirante.pde.service;
 
+import br.net.mirante.pde.entity.Pessoa;
 import br.net.mirante.pde.entity.Usuario;
 import br.net.mirante.pde.pojo.Login;
 import br.net.mirante.pde.repository.UsuarioRepository;
@@ -18,20 +19,28 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Boolean autenticarUsuario(Login login) {
+    public Boolean autenticar(Login login) {
         return usuarioRepository.authenticateUser(login);
     }
 
-    public Boolean autenticarUsuario(String login, String senha) {
-        return autenticarUsuario(new Login(login, senha));
+    public Boolean autenticar(String login, String senha) {
+        return autenticar(new Login(login, senha));
     }
 
-    public Usuario salvarUsuario(Usuario usuario) {
+    public Usuario salvar(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
     public Usuario buscar(Long id) {
         return usuarioRepository.findById(id).orElse(null);
+    }
+
+    public void excluir(Usuario usuario) {
+        usuarioRepository.delete(usuario);
+    }
+
+    public void excluir(Long id) {
+        usuarioRepository.delete(buscar(id));
     }
 
 }

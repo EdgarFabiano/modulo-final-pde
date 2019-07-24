@@ -4,12 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Pessoa extends BaseEntity<Long> {
@@ -19,25 +22,28 @@ public class Pessoa extends BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn
+    @JoinColumn(nullable = false)
     @OneToOne
     private Usuario usuario;
 
-    @Column
+    @Column(nullable = false)
     private String nome;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String cpf;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private Date nascimento;
 
     @Column
     private String curriculo;
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Perfil perfil;
+
+    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
+    private List<Endereco> endereco;
 
     @Override
     public Long getCod() {
@@ -98,5 +104,13 @@ public class Pessoa extends BaseEntity<Long> {
 
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
+    }
+
+    public List<Endereco> getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(List<Endereco> endereco) {
+        this.endereco = endereco;
     }
 }
