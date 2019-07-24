@@ -7,12 +7,11 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import br.net.mirante.pde.entity.Usuario;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.Objects;
 
-/**
- * Implementação customizada de um JpaRepository para {{@link Usuario}}.
- */
+@Named
 public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom {
 
     @Inject
