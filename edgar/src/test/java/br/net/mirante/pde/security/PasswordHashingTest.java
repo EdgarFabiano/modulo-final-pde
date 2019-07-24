@@ -29,9 +29,4 @@ public class PasswordHashingTest {
         PasswordHashing.generateHash(Strings.EMPTY);
     }
 
-    @Test(expected = PasswordException.class)
-    public void generateHashPattern() {
-        PasswordHashing.generateHash("123456");
-    }
-
 }
