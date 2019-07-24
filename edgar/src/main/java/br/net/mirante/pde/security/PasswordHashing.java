@@ -1,7 +1,6 @@
 package br.net.mirante.pde.security;
 
 import br.net.mirante.pde.exception.PasswordException;
-import lombok.experimental.UtilityClass;
 import org.apache.logging.log4j.util.Strings;
 
 import javax.validation.constraints.NotEmpty;
@@ -16,7 +15,6 @@ import static org.apache.logging.log4j.LogManager.getLogger;
 /**
  * Classe utilitaria para cuidar da geracao de hash para as senhas dos usuarios.
  */
-@UtilityClass
 public class PasswordHashing {
 
     private static final String SALT = "ciw566164123213@!#@!@(@!()!@#SADasddsa,@!*U@#*@!##@!::::::DSDSAKDSAcnxzcmxz";
