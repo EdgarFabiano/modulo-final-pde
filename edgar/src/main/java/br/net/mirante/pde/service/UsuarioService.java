@@ -6,12 +6,17 @@ import br.net.mirante.pde.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @Service
 public class UsuarioService {
 
     @Inject
     UsuarioRepository usuarioRepository;
+
+    public List<Usuario> findAll() {
+        return usuarioRepository.findAll();
+    }
 
     public Boolean autenticarUsuario(Login login) {
         return usuarioRepository.authenticateUser(login);
