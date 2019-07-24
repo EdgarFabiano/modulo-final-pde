@@ -33,12 +33,6 @@ public class PasswordHashing {
         if (Strings.isEmpty(input))
             throw new PasswordException("Input must not be null/empty.");
 
-        if (input.length() < 6)
-            throw new PasswordException("Input size must be greather than 6.");
-
-        if (!input.matches("^.*(?=..*[0-9])(?=.*[a-z]|[A-Z]).*$"))
-            throw new PasswordException("Input must have at least one numeric/alphabetical char.");
-
         StringBuilder hash = new StringBuilder();
         input = SALT + input;
 

@@ -7,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario extends BaseEntity<Long> {
@@ -17,25 +16,15 @@ public class Usuario extends BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    @NotNull
-    private String nome;
-
     @Column(unique = true)
-    @NotNull
-    private String email;
-
-    @Column(unique = true)
-    @NotNull
     private String login;
 
     @Column
-    @NotNull
     private String senha;
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Permissao permissao;
+    private Perfil perfil;
 
     @Override
     public Long getCod() {
@@ -48,22 +37,6 @@ public class Usuario extends BaseEntity<Long> {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getLogin() {
@@ -82,12 +55,12 @@ public class Usuario extends BaseEntity<Long> {
         this.senha = senha;
     }
 
-    public Permissao getPermissao() {
-        return permissao;
+    public Perfil getPerfil() {
+        return perfil;
     }
 
-    public void setPermissao(Permissao permissao) {
-        this.permissao = permissao;
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
 }
