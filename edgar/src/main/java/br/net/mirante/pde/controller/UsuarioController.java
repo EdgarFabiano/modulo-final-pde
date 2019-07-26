@@ -4,6 +4,8 @@ import br.net.mirante.pde.entity.Usuario;
 import br.net.mirante.pde.service.UsuarioService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
@@ -16,9 +18,14 @@ public class UsuarioController {
     @Inject
     private UsuarioService usuarioService;
 
-    @GetMapping("/users")
-    public List<Usuario> getUsers() {
+    @GetMapping("/usuarios")
+    public List<Usuario> getUsuarios() {
         return usuarioService.findAll();
+    }
+
+    @PostMapping("/usuarios")
+    public void saveUsuario(@RequestBody Usuario usuario) {
+        usuarioService.salvar(usuario);
     }
 
 }

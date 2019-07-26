@@ -4,6 +4,7 @@ import br.net.mirante.pde.entity.Pessoa;
 import br.net.mirante.pde.entity.Usuario;
 import br.net.mirante.pde.pojo.Login;
 import br.net.mirante.pde.repository.UsuarioRepository;
+import br.net.mirante.pde.security.PasswordHashing;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -28,6 +29,8 @@ public class UsuarioService {
     }
 
     public Usuario salvar(Usuario usuario) {
+        String senha = usuario.getSenha();
+        usuario.setSenha(PasswordHashing.generateHash(senha));
         return usuarioRepository.save(usuario);
     }
 

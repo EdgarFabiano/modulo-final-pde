@@ -13,8 +13,8 @@
         <input type="text" [(ngModel)]="usuario.senha"
                class="form-control" id="senha" name="senha" placeholder="Enter your password"
                required #senha="ngModel">
-        <div [hidden]="!senha.pristine" class="alert alert-danger">Senha is required</div>
       </div>
+      <div [hidden]="!senha.pristine" class="alert alert-danger">Senha is required</div>
       <button type="submit" [disabled]="!usuarioForm.form.valid" class="btn btn-info">Submit</button>
     </form>
   </div>

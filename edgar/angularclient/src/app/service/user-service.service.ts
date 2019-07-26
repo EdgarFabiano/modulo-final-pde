@@ -9,7 +9,7 @@ export class UsuarioService {
   private usersUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:4200/users';
+    this.usersUrl = 'http://localhost:4200/usuarios';
   }
 
   public findAll(): Observable<Usuario[]> {
