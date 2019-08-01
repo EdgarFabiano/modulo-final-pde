@@ -9,7 +9,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let usuario of usuarios">
+      <tr *ngFor="let usuario of usuarios | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
         <td>{{ usuario.id }}</td>
         <td>{{ usuario.login }}</td>
         <td><a href="mailto:{{ usuario.login }}">{{ usuario.senha }}</a></td>
@@ -18,3 +18,4 @@
     </table>
   </div>
 </div>
+<ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="length">  </ngb-pagination>
