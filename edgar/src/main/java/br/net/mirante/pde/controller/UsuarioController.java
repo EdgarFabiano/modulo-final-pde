@@ -19,12 +19,12 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping("/usuarios")
-    public List<Usuario> getUsuarios() {
+    public List<Usuario> findAll() {
         return usuarioService.findAll();
     }
 
     @PostMapping("/usuarios")
-    public void saveUsuario(@RequestBody Usuario usuario) {
+    public void save(@RequestBody Usuario usuario) {
         usuarioService.salvar(usuario);
     }
 

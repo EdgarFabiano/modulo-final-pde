@@ -11,7 +11,7 @@ import java.util.List;
 public class EnderecoService {
 
     @Inject
-    EnderecoRepository enderecoRepository;
+    private EnderecoRepository enderecoRepository;
 
     public List<Endereco> findAll() {
         return enderecoRepository.findAll();

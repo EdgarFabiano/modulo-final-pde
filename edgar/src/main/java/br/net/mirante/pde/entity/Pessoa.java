@@ -38,13 +38,6 @@ public class Pessoa extends BaseEntity<Long> {
     @Column
     private String curriculo;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Perfil perfil;
-
-    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
-    private List<Endereco> endereco;
-
     @Override
     public Long getCod() {
         return getId();
@@ -98,19 +91,4 @@ public class Pessoa extends BaseEntity<Long> {
         this.curriculo = curriculo;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
-    }
-
-    public List<Endereco> getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(List<Endereco> endereco) {
-        this.endereco = endereco;
-    }
 }

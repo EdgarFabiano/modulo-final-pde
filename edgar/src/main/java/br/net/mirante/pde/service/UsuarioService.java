@@ -14,7 +14,7 @@ import java.util.List;
 public class UsuarioService {
 
     @Inject
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     public List<Usuario> findAll() {
         return usuarioRepository.findAll();

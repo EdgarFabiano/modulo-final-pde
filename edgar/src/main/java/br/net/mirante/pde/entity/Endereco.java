@@ -1,7 +1,9 @@
 package br.net.mirante.pde.entity;
 
+import com.google.common.base.Joiner;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import java.util.HashSet;
+import java.util.Objects;
 
 @Entity
 @Table(uniqueConstraints= @UniqueConstraint(columnNames={"cep", "numero"}))
@@ -44,7 +48,7 @@ public class Endereco extends BaseEntity<Long> {
     private String cep;
 
     @JoinColumn
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Pessoa pessoa;
 
     @Override
@@ -127,12 +131,13 @@ public class Endereco extends BaseEntity<Long> {
     @Override
     public String toString() {
         String separator = "-";
-        return new ToStringBuilder(this)
-                .append("logradouro", logradouro).append(separator)
-                .append("numero", numero).append(separator)
-                .append("bairro", bairro).append(separator)
-                .append("cidade", cidade).append(separator)
-                .append("uf", uf).append(separator)
-                .toString();
+        HashSet<String> enderecos = new HashSet<>();
+        enderecos.add(logradouro);
+        enderecos.add(numero);
+        enderecos.add(bairro);
+        enderecos.add(cidade);
+        enderecos.add(uf.getSigla());
+        enderecos.removeIf(Objects::isNull);
+        return Joiner.on(separator).join(enderecos);
     }
 }

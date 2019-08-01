@@ -21,7 +21,7 @@ export class UsuarioFormComponent {
   }
 
   gotoUserList() {
-    this.router.navigate(['/users']);
+    this.router.navigate(['/desafio/pessoas']);
   }
 
 }

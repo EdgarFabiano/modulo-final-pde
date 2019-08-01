@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {UsuarioListComponent} from "./usuario-list/usuario-list.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {UsuarioFormComponent} from "./usuario-form/usuario-form.component";
+import {PessoaListComponent} from "./pessoa-list/pessoa-list.component";
 
 const routes: Routes = [
-  { path: 'users', component: UsuarioListComponent },
-  { path: 'adduser', component: UsuarioFormComponent }
+  { path: 'desafio/pessoas', component: PessoaListComponent },
+  { path: 'desafio/pessoa', component: UsuarioFormComponent }
 ];
 
 @NgModule({

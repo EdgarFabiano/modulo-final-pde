@@ -1,6 +1,8 @@
 package br.net.mirante.pde.service;
 
+import br.net.mirante.pde.entity.Endereco;
 import br.net.mirante.pde.entity.Pessoa;
+import br.net.mirante.pde.repository.EnderecoRepository;
 import br.net.mirante.pde.repository.PessoaRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,10 @@ import java.util.List;
 public class PessoaService {
 
     @Inject
-    PessoaRepository pessoaRepository;
+    private PessoaRepository pessoaRepository;
+
+    @Inject
+    private EnderecoRepository enderecoRepository;
 
     public List<Pessoa> findAll() {
         return pessoaRepository.findAll();
@@ -34,7 +39,11 @@ public class PessoaService {
     }
 
     public void excluir(Long id) {
-        pessoaRepository.delete(buscar(id));
+        enderecoRepository.findAllByPessoaId(id).forEach(endereco -> {
+            endereco.setPessoa(null);
+            enderecoRepository.save(endereco);
+        });
+        pessoaRepository.deleteById(id);
     }
 
 }

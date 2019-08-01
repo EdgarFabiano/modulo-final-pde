@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import static org.apache.logging.log4j.LogManager.getLogger;
 
 /**
- * Classe utilitaria para cuidar da geracao de hash para as senhas dos usuarios.
+ * Classe utilitaria para cuidar da geracao de hash para as senhas dos pessoas.
  */
 public class PasswordHashing {
 
