@@ -1,6 +1,5 @@
 package br.net.mirante.pde.service;
 
-import br.net.mirante.pde.entity.Endereco;
 import br.net.mirante.pde.entity.Pessoa;
 import br.net.mirante.pde.repository.EnderecoRepository;
 import br.net.mirante.pde.repository.PessoaRepository;

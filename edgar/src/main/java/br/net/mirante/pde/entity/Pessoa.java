@@ -22,7 +22,7 @@ public class Pessoa extends BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(nullable = false)
+    @JoinColumn
     @OneToOne
     private Usuario usuario;
 

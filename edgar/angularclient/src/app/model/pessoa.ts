@@ -1,4 +1,5 @@
 import {Usuario} from "./usuario";
+import {DatePipe} from "@angular/common";
 
 export class Pessoa {
 
