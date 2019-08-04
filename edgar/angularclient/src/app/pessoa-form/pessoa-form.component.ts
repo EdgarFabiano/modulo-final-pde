@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Pessoa} from "../model/pessoa";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PessoaService} from "../service/pessoa.service";
+import {Constants} from "../util/constants";
 
 @Component({
   selector: 'app-pessoa-form',
@@ -22,7 +23,7 @@ export class PessoaFormComponent {
   }
 
   gotoUserList() {
-    this.router.navigate(['/desafio/pessoas']);
+    this.router.navigate(['/' + Constants.LISTAGEM_PESSOAS]);
   }
 
   formatData(s: string): string{
@@ -30,7 +31,7 @@ export class PessoaFormComponent {
     let month = s.charAt(2) + s.charAt(3);
     let day = s.charAt(0) + s.charAt(1);
 
-    return year + "-" + month + "-" + day;
+    return year + "-" + month + "-" + day + "T02:00:00.001+0000";
   }
 
 }

@@ -1,13 +1,12 @@
-import {Usuario} from "./usuario";
-import {DatePipe} from "@angular/common";
+import {Endereco} from "./endereco";
 
 export class Pessoa {
 
   id: string;
-  usuario: Usuario;
   nome: string;
   cpf: string;
   nascimento: string;
   curriculo: string;
+  enderecos: Array<Endereco>;
 
 }

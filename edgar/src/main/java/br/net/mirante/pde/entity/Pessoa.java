@@ -9,8 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -21,10 +24,6 @@ public class Pessoa extends BaseEntity<Long> {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @JoinColumn
-    @OneToOne
-    private Usuario usuario;
 
     @Column(nullable = false)
     private String nome;
@@ -38,6 +37,11 @@ public class Pessoa extends BaseEntity<Long> {
     @Column
     private String curriculo;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="ENDERECO_PESSOA",
+            joinColumns={@JoinColumn(name="ENDERECOS")}, inverseJoinColumns = {@JoinColumn(name="PESSOAS")})
+    private List<Endereco> enderecos;
+
     @Override
     public Long getCod() {
         return getId();
@@ -49,14 +53,6 @@ public class Pessoa extends BaseEntity<Long> {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public String getNome() {
@@ -91,4 +87,11 @@ public class Pessoa extends BaseEntity<Long> {
         this.curriculo = curriculo;
     }
 
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
 }

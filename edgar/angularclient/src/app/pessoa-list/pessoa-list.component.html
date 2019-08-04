@@ -15,8 +15,8 @@
       <tr *ngFor="let pessoa of pessoas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
         <td>{{ pessoa.id }}</td>
         <td>{{ pessoa.nome }}</td>
-        <td>{{ pessoa.cpf }}</td>
-        <td>{{ pessoa.nascimento }}</td>
+        <td>{{ pessoa.cpf | mask:"000.000.000-00" }}</td>
+        <td>{{ pessoa.nascimento | date: "dd/MM/yyyy" }}</td>
         <td>endereço</td>
         <td>
           <button type="button" class="btn btn-secondary" (click)="editar(pessoa.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>

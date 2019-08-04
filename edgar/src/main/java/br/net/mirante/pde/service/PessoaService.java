@@ -38,10 +38,6 @@ public class PessoaService {
     }
 
     public void excluir(Long id) {
-        enderecoRepository.findAllByPessoaId(id).forEach(endereco -> {
-            endereco.setPessoa(null);
-            enderecoRepository.save(endereco);
-        });
         pessoaRepository.deleteById(id);
     }
 

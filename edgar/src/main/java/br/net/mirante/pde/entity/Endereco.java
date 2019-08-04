@@ -6,14 +6,19 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -46,10 +51,6 @@ public class Endereco extends BaseEntity<Long> {
 
     @Column
     private String cep;
-
-    @JoinColumn
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Pessoa pessoa;
 
     @Override
     public Long getCod() {
@@ -118,14 +119,6 @@ public class Endereco extends BaseEntity<Long> {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 
     @Override
