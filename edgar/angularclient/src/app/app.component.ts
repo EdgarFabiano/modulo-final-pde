@@ -11,11 +11,12 @@ import {Router} from "@angular/router";
 export class AppComponent {
 
   title: string;
-  authenticated: boolean;
+  public authenticated: boolean;
 
   constructor(authService: AuthService, private router: Router) {
     this.authenticated = authService.isAuthenticated();
     this.title = 'Programa de estágio - Mirante Tecnologia';
+    Constants.APP_COMPONENT = this;
 
     if (this.authenticated) {
       this.gotoUserList();

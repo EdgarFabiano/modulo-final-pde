@@ -4,8 +4,10 @@ import br.net.mirante.pde.entity.Usuario;
 import br.net.mirante.pde.service.UsuarioService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
@@ -28,4 +30,8 @@ public class UsuarioController {
         usuarioService.salvar(usuario);
     }
 
+    @GetMapping("/autenticar")
+    public boolean autenticar(@RequestParam String usuario, @RequestParam String senha) {
+        return usuarioService.autenticar(usuario, senha);
+    }
 }

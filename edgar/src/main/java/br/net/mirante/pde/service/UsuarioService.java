@@ -1,6 +1,5 @@
 package br.net.mirante.pde.service;
 
-import br.net.mirante.pde.entity.Pessoa;
 import br.net.mirante.pde.entity.Usuario;
 import br.net.mirante.pde.pojo.Login;
 import br.net.mirante.pde.repository.UsuarioRepository;
