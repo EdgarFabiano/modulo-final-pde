@@ -21,6 +21,7 @@ export class PessoaListComponent implements OnInit {
   constructor(private pessoaService: PessoaService, private router: Router, private authService: AuthService) {
     this.page = 1;
     this.pageSize = 10;
+    this.length = 100;
   }
 
   ngOnInit() {

@@ -34,6 +34,7 @@ public class PessoaRepositoryImpl implements PessoaRepositoryCustom {
             BooleanBuilder builder = new BooleanBuilder();
             builder.or(pessoa.nome.containsIgnoreCase(filtro));
             builder.or(pessoa.cpf.containsIgnoreCase(TextFormatUtil.removeNonNumberCharacters(filtro)));
+            builder.or(pessoa.nascimento.stringValue().containsIgnoreCase(TextFormatUtil.removeNonNumberCharacters(filtro)));
 
             query.where(builder);
         }
