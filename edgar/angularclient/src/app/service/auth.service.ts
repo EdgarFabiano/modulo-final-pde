@@ -14,6 +14,7 @@ export class AuthService {
     promise.then(res=> {
       if (res) {
         console.log("Login successful");
+        Constants.APP_COMPONENT.logged = usuario;
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('user', usuario);
       } else {

@@ -12,10 +12,12 @@ export class AppComponent {
 
   title: string;
   public authenticated: boolean;
+  public logged: string;
 
   constructor(authService: AuthService, private router: Router) {
     this.authenticated = authService.isAuthenticated();
     this.title = 'Programa de estágio - Mirante Tecnologia';
+    this.logged = authService.getLogged();
     Constants.APP_COMPONENT = this;
 
     if (this.authenticated) {
