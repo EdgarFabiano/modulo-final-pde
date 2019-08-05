@@ -35,10 +35,8 @@
       <div class="form-group">
         <label for="curriculo">Currículo</label>
         <textarea type="text" [(ngModel)]="pessoa.curriculo"
-               class="form-control" id="curriculo" name="curriculo" placeholder="Digite seu currículo"
-                  required #curriculo="ngModel"></textarea>
+               class="form-control" id="curriculo" name="curriculo" placeholder="Digite seu currículo"></textarea>
       </div>
-      <div [hidden]="!curriculo.pristine" class="alert alert-danger">O currículo é obrigatório</div>
 
 
       <button type="submit" [disabled]="!pessoaForm.form.valid" class="btn btn-info">Salvar</button>

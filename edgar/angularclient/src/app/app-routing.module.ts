@@ -9,6 +9,7 @@ import {LogoutComponent} from "./logout/logout.component";
 const routes: Routes = [
   { path: Constants.LISTAGEM_PESSOAS, component: PessoaListComponent },
   { path: Constants.FORM_PESSOA, component: PessoaFormComponent },
+  { path: Constants.FORM_PESSOA + '/:id', component: PessoaFormComponent },
   { path: Constants.LOGIN, component: LoginComponent },
   { path: Constants.LOGOUT, component: LogoutComponent }
 ];

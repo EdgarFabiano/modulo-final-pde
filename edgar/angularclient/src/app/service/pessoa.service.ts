@@ -15,6 +15,11 @@ export class PessoaService {
     return this.http.get<Pessoa[]>(Constants.PESSOAS_ENDPOINT);
   }
 
+  public buscar(id: string): Observable<Pessoa> {
+    var url = Constants.PESSOAS_ENDPOINT + '/' + id;
+    return this.http.get<Pessoa>(url);
+  }
+
   public save(pessoa: Pessoa) {
     return this.http.post<Pessoa>(Constants.PESSOAS_ENDPOINT, pessoa);
   }

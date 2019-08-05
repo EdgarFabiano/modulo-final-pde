@@ -26,6 +26,11 @@ public class PessoaController {
         return pessoaService.findAll();
     }
 
+    @GetMapping("/pessoas/{id}")
+    public Pessoa buscar(@PathVariable Long id) {
+        return pessoaService.buscar(id);
+    }
+
     @GetMapping("/pessoas/filtrar")
     public List<Pessoa> filtrar(@RequestParam String filtro) {
         return pessoaService.filtrar(filtro);

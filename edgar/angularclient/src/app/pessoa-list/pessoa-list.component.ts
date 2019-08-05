@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PessoaService} from "../service/pessoa.service";
 import {Pessoa} from "../model/pessoa";
 import {Router} from "@angular/router";
+import {Constants} from "../util/constants";
 
 @Component({
   selector: 'app-pessoa-list',
@@ -16,7 +17,7 @@ export class PessoaListComponent implements OnInit {
   length: number;
   searchText: string;
 
-  constructor(private pessoaService: PessoaService) {
+  constructor(private pessoaService: PessoaService, private router: Router) {
     this.page = 1;
     this.pageSize = 10;
   }
@@ -29,7 +30,7 @@ export class PessoaListComponent implements OnInit {
   }
 
   editar(id: string) {
-
+    this.router.navigate(['/' + Constants.FORM_PESSOA + '/' + id]);
   }
 
   excluir(id: string) {
