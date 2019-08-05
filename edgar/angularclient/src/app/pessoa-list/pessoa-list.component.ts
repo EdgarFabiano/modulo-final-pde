@@ -26,7 +26,6 @@ export class PessoaListComponent implements OnInit {
   ngOnInit() {
     this.pessoaService.findAll().subscribe(data => {
       this.pessoas = data;
-      this.length = 100
     });
   }
 
@@ -36,7 +35,7 @@ export class PessoaListComponent implements OnInit {
 
   excluir(id: string) {
     this.pessoaService.delete(id);
-    // location.reload();
+    location.reload();
   }
 
   filtrar() {
