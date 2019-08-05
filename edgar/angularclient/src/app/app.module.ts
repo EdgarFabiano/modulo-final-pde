@@ -14,6 +14,7 @@ import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
 import {IConfig, NgxMaskModule} from "ngx-mask";
 import { LoginComponent } from './login/login.component';
 import {AuthService} from "./service/auth.service";
+import { LogoutComponent } from './logout/logout.component';
 
 export var options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -22,7 +23,8 @@ export var options: Partial<IConfig> | (() => Partial<IConfig>);
     AppComponent,
     PessoaListComponent,
     PessoaFormComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
