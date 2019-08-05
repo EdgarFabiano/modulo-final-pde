@@ -14,7 +14,7 @@ export class AppComponent {
   public authenticated: boolean;
   public logged: string;
 
-  constructor(authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.authenticated = authService.isAuthenticated();
     this.title = 'Programa de estágio - Mirante Tecnologia';
     this.logged = authService.getLogged();

@@ -16,7 +16,7 @@ export class PessoaService {
   }
 
   public buscar(id: string): Observable<Pessoa> {
-    var url = Constants.PESSOAS_ENDPOINT + '/' + id;
+    var url = Constants.PESSOAS_ENDPOINT + (id != null ? '/' + id : '');
     return this.http.get<Pessoa>(url);
   }
 

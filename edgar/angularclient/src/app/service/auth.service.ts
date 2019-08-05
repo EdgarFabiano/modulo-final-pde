@@ -40,4 +40,8 @@ export class AuthService {
     return localStorage.getItem('user');
   }
 
+  isLoggedAdm(): boolean {
+    return 'adm' === this.getLogged();
+  }
+
 }

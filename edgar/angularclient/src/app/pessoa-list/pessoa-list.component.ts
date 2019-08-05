@@ -3,6 +3,7 @@ import {PessoaService} from "../service/pessoa.service";
 import {Pessoa} from "../model/pessoa";
 import {Router} from "@angular/router";
 import {Constants} from "../util/constants";
+import {AuthService} from "../service/auth.service";
 
 @Component({
   selector: 'app-pessoa-list',
@@ -17,7 +18,7 @@ export class PessoaListComponent implements OnInit {
   length: number;
   searchText: string;
 
-  constructor(private pessoaService: PessoaService, private router: Router) {
+  constructor(private pessoaService: PessoaService, private router: Router, private authService: AuthService) {
     this.page = 1;
     this.pageSize = 10;
   }

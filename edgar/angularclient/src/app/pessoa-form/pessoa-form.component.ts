@@ -3,6 +3,7 @@ import {Pessoa} from "../model/pessoa";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PessoaService} from "../service/pessoa.service";
 import {Constants} from "../util/constants";
+import {AuthService} from "../service/auth.service";
 
 @Component({
   selector: 'app-pessoa-form',
@@ -13,7 +14,10 @@ export class PessoaFormComponent implements OnInit{
 
   pessoa: Pessoa;
 
-  constructor(private route: ActivatedRoute, private router: Router, private pessoaService: PessoaService) {
+  constructor(private route: ActivatedRoute, private router: Router, private pessoaService: PessoaService, authService: AuthService) {
+    if (!authService.isLoggedAdm()) {
+      this.gotoUserList();
+    }
     this.pessoa = new Pessoa();
   }
 
@@ -46,10 +50,12 @@ export class PessoaFormComponent implements OnInit{
   }
 
   reverseFormatData(s: string) {
-    let year =  s.charAt(0) + s.charAt(1) + s.charAt(2) + s.charAt(3);
-    let month = s.charAt(5) + s.charAt(6);
-    let day = s.charAt(8) + s.charAt(9);
-    return day + '/' + month + '/' + year;
+    if (s != undefined) {
+      let year =  s.charAt(0) + s.charAt(1) + s.charAt(2) + s.charAt(3);
+      let month = s.charAt(5) + s.charAt(6);
+      let day = s.charAt(8) + s.charAt(9);
+      return day + '/' + month + '/' + year;
+    }
   }
 
 }
