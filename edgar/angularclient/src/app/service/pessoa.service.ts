@@ -24,4 +24,8 @@ export class PessoaService {
     this.http.delete(url).subscribe();
   }
 
+  public filtrar(filtro: string): Observable<Pessoa[]> {
+    return this.http.get<Pessoa[]>(`${Constants.PESSOAS_FILTRO_ENDPOINT}?filtro=${filtro}`);
+  }
+
 }

@@ -14,6 +14,7 @@ export class PessoaListComponent implements OnInit {
   page: number;
   pageSize: number;
   length: number;
+  searchText: string;
 
   constructor(private pessoaService: PessoaService) {
     this.page = 1;
@@ -36,4 +37,7 @@ export class PessoaListComponent implements OnInit {
     // location.reload();
   }
 
+  filtrar() {
+    this.pessoaService.filtrar(this.searchText).toPromise().then(pessoas => this.pessoas = pessoas)
+  }
 }

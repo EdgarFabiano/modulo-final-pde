@@ -1,5 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
+    <label>Filtrar: <input class="form-control" [(ngModel)]="searchText" (ngModelChange)="filtrar()"></label>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>

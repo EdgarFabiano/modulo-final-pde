@@ -6,6 +6,7 @@ export class Constants {
   public static LOGOUT= 'logout';
 
   public static PESSOAS_ENDPOINT= 'http://localhost:4200/pessoas';
+  public static PESSOAS_FILTRO_ENDPOINT= 'http://localhost:4200/pessoas/filtrar';
   public static AUTH_ENDPOINT= 'http://localhost:4200/autenticar';
 
   public static APP_COMPONENT;
