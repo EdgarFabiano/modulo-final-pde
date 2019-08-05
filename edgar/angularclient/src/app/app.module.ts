@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-// import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
-
-
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
@@ -15,6 +12,7 @@ import {IConfig, NgxMaskModule} from "ngx-mask";
 import { LoginComponent } from './login/login.component';
 import {AuthService} from "./service/auth.service";
 import { LogoutComponent } from './logout/logout.component';
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 export var options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -33,9 +31,7 @@ export var options: Partial<IConfig> | (() => Partial<IConfig>);
     AppRoutingModule,
     NgxMaskModule.forRoot(options),
     ReactiveFormsModule,
-    /*,
-                NgbPaginationModule,
-                NgbAlertModule*/
+    NgbPaginationModule,
   ],
   providers: [UsuarioService, PessoaService, AuthService],
   bootstrap: [AppComponent],

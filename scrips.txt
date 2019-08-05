@@ -1,4 +1,4 @@
-npm install -g @angular/cli@1.7.4
+npm install -g @angular/cli@latest
 ng new angularclient
 
 npm install --save ngx-mask
